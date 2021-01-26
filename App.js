@@ -9,14 +9,24 @@ export default class App extends React.Component {
   render(){
     return (
       <View style={styles.container}>
+         <AppContainer />
       </View>
     );
   }
 }
 
 const TabNavigator = createBottomTabNavigator({
-  Write: {screens: Write},
-  Read: {screens: Read}
+  Write: {screen: Write},
+  Read: {screen: Read}
 })
 
 const AppContainer = createAppContainer(TabNavigator);
+
+const styles = StyleSheet.create({
+  container: {
+     flex: 1,
+     backgroundColor: '#fff',
+     alignItems: 'center',
+     justifyContent: 'center',
+  }
+})

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Header, TextInput } from 'react-native';
 
 export default class Write extends React.Component {
     render(){
