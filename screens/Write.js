@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Header, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Header, TextInput, KeyboardAvoidingView, ToastAndroid } from 'react-native';
 import db from '../config.js'
 import firebase from 'firebase'
 
@@ -13,7 +13,7 @@ export default class Write extends React.Component {
       }
    }
 
-   submitStory =() => {
+   submitStory = () => {
       db.collection('Story').add({
          storyTitle: this.state.title,
          storyAuthor: this.state.author,
@@ -24,32 +24,37 @@ export default class Write extends React.Component {
           author: '',
           story: ''
        })
+       ToastAndroid.show('The story has been submitted.',ToastAndroid.SHORT);
    }
     render(){
         return(
+           <KeyboardAvoidingView>
+            
             <View style = {styles.container}>
              <Header backgroundColor = {'#23DAF9'} centerComponent = {{text: 'Write a Story', style: {color: '#2A23F9', fontSize: 20}, }}/>
 
-             <TextInput style = {styles.input} value = {this.state.title} onChangeText={(text) => {
+             <TextInput style = {styles.input} onChangeText={(text) => {
                 this.setState({
                   title: text,
                 });
-              }} placeholder = "Title"/>
+              }} value = {this.state.title} placeholder = "Title"/>
 
-             <TextInput style = {styles.input} value = {this.state.author} onChangeText={(text) => {
+             <TextInput style = {styles.input} onChangeText={(text) => {
                 this.setState({
                   author: text,
                 });
-              }} placeholder = "Author"/>
+              }} value = {this.state.author} placeholder = "Author"/>
               
-             <TextInput style = {styles.input} value = {this.state.story} onChangeText={(text) => {
+             <TextInput style = {styles.input} onChangeText={(text) => {
                 this.setState({
                    story: text,
                 })
-             }} placeholder = "Write your story" multiline = {true}/>
+             }} value = {this.state.story} placeholder = "Write your story" multiline = {true}/>
 
              <TouchableOpacity style = {styles.goButton} onPress = {this.submitStory}><Text style = {styles.buttonText}>Submit</Text></TouchableOpacity>
             </View>
+          
+            </KeyboardAvoidingView>
         )
     }
 }
