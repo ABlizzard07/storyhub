@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import Read from "./screens/Read";
 import Write from "./screens/Write";
 import {createAppContainer} from 'react-navigation'
@@ -27,7 +27,7 @@ const TabNavigator = createBottomTabNavigator({
       if(routeName === "Write"){
         return(
           <Image
-          source={require("./pencil.png")}
+          source={require("./assets/pencil.png")}
           style={{width:40, height:40}}
         />
         )
@@ -36,7 +36,7 @@ const TabNavigator = createBottomTabNavigator({
       else if(routeName === "Read"){
         return(
           <Image
-          source={require(".book.png")}
+          source={require("./assets/book.png")}
           style={{width:40, height:40}}
         />)
         

@@ -25,11 +25,11 @@ export default class Read extends React.Component {
           lastVisibleStories: doc
         })
       })
-  }
+  
 
     searchTransactions= async(text) =>{
         const storySearch =  await db.collection("Story").where('storyId','==',text).get()
-        transaction.docs.map((doc)=>{
+        storySearch.docs.map((doc)=>{
           this.setState({
             allStories:[...this.state.allStories,doc.data()],
             lastVisibleStory: doc
@@ -72,6 +72,8 @@ export default class Read extends React.Component {
         </ScrollView>
       );
     }
+
+  }
   
   const styles = StyleSheet.create({
     container: {
