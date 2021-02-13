@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Header, TextInput, KeyboardAvoidingView, ToastAndroid } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, KeyboardAvoidingView, ToastAndroid } from 'react-native';
+import {Header} from 'react-native-elements'
 import db from '../config.js'
 import firebase from 'firebase'
 
